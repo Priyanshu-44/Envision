@@ -1,0 +1,39 @@
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# YOLO weights (auto-downloaded, don't bloat the repo)
+*.pt
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Data (generated at runtime / large binaries — sample clips tracked via README instructions or Git LFS if needed)
+# *.sqlite3* (not just *.sqlite3) so WAL-mode sidecar files (-wal, -shm) are
+# ignored too, not just the main db file.
+data/db/*.sqlite3*
+data/recordings/*
+data/thumbnails/*
+!data/recordings/.gitkeep
+!data/thumbnails/.gitkeep
+
+# Env (frontend/.env itself is committed on purpose — no secrets, just the
+# localhost API URL judges need to run the demo unmodified; only ignore overrides)
+.env.local
+*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local Claude Code session settings (not project config)
+.claude/settings.local.json
+
+# Case-study brief supplied by A-1 — reference material, not project deliverable
+*.docx
