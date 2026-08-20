@@ -22,7 +22,6 @@ Perimeter security operators are flooded with false alerts from wind, animals, a
 - [Project structure](#project-structure)
 - [Database schema](#database-schema)
 - [API reference](#api-reference)
-- [What's built vs. roadmap](#whats-built-vs-roadmap)
 - [Acknowledgements](#acknowledgements)
 
 ## What this is
@@ -282,16 +281,6 @@ The full interactive documentation is at `/docs`. In summary:
 | GET | `/playback` | Stream a recording, seeked by event ID or by camera and timestamp |
 | GET | `/dashboard/stats`, `/analytics` | Dashboard tile data, analytics data |
 | WS | `/ws/events` | Real-time event push |
-
-## What's built vs. roadmap
-
-Everything in the tables above is implemented and has been re-verified end to end — backend boot, both verification scripts, all six frontend pages, and interaction tests for acknowledging an alert and clicking a timeline marker to seek. The original scope split the MVP from two win-booster features (zones and analytics); both are built.
-
-Deliberately out of scope for this prototype: real RTSP or ONVIF camera integration, cloud storage and retention, authentication and audit trails, face or license-plate recognition, native mobile apps, direct integration with A-1's Vigil PIDS sensor network, and edge deployment. These remain roadmap items.
-
-One known limitation: under heavy CPU load, a gap of more than a few seconds between qualifying detections can reset an object's tracked dwell time, which occasionally produces a duplicate event sooner than the cooldown would otherwise allow. This comes from tracking by zone and object class rather than true multi-object identity, and is noted in [`backend/app/services/tracker.py`](backend/app/services/tracker.py).
-
-Ultralytics YOLOv8 is AGPL-3.0 licensed for non-commercial use, with a separate commercial license available from Ultralytics. That's fine for this prototype, but worth flagging as a real decision if the pipeline goes further with A-1.
 
 ## Acknowledgements
 
